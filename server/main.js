@@ -13,6 +13,12 @@ app.get('/',function(request, response) {
 // De esta forma activamos sockt para que este ecuchando mandamos un mensaje de control por consola para saber que pasa y tenemos que hacer ocn el mensaje venga del navegaor web mediante html u JS
 io.on('connection', function(socket) {
     console.log('Alguien se ha conectado con socket');
+    // Aqui controlamos los eventos del cliente mediante sockets
+    socket.emit('messages', {
+        id: 1,
+        texto: "¿Qué pasó muchacho?",
+        autor: "Mario Alejandro Lujan Miranda"
+    });
 });
 
 server.listen(3002, function() {
