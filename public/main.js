@@ -9,9 +9,12 @@ socket.on('messages', function(data){
 });
 
 function render(data) {
-    // Aqui se inicia el manejo de string que viene en EM6 se usan estas comillas
-    // Las variables se colocan con el signo de $ y entre {}
-    var html = `<div><strong>${data.autor}</strong>:<em>${data.texto}</em></div>`;
+    // Reestructuramos esta seccion para que se maneje el Array
+    // elem es un conjunto de cosas
+    // con map recorremos el array
+    var html = data.map(function(elem, index){
+        return(`<div><strong>${elem.autor}</strong>:<em>${elem.texto}</em></div>`);
+    }).join(" ");
 
     document.getElementById('messages').innerHTML = html;
 }
