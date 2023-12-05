@@ -15,3 +15,14 @@ function render(data) {
 
     document.getElementById('messages').innerHTML = html;
 }
+
+// Cada vez que alguien presione el botón enviar en el formulario
+// El cliente emite un nuevo mensaje y manda el payload
+function addMessage(e) {
+    var payload = {
+        autor: document.getElementById(username).value,
+        texto: document.getElementById(texto).value
+    };
+    socket.emit('new-message', payload);
+    return false;
+}

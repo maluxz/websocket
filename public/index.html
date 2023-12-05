@@ -11,8 +11,17 @@
     <script src="main.js"></script>
 </head>
 <body>
-    <h1>Mi aplicación</h1>
+    <h1>Mi aplicación con Sockets</h1>
     <!-- Queremos que estos mensajes se vean en nuestra página como un chat -->
     <div id="messages"></div>
+    <br>
+    <!-- Creamos un formulario para mandar mensajes -->
+    <!-- No pondremos una acción para que no s recargue la página y todo sea realtime -->
+    <!-- Por lo tanto utilizaremos onsubmit, que hará la conexión con el servidor -->
+    <form onsubmit="return addMessage(this);">
+        <input type="text" name="username" id="username" placeholder="Tu nombre">
+        <input type="text" name="texto" id="texto" placeholder="Cuéntanos algo">
+        <input type="submit" value="Enviar">
+    </form>
 </body>
 </html>
